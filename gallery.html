@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#10110f" />
+  <meta name="description" content="Explore the training spaces and equipment at Kuya Zarge Fitness Gym." />
+  <title>Gym Gallery | Kuya Zarge Fitness Gym</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#10110f; --panel:#171916; --line:rgba(255,255,255,.11); --muted:#a6aaa1; --white:#f5f6f1; --lime:#c6fa36; --display:'Barlow Condensed',Impact,sans-serif; --body:'DM Sans',Arial,sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--ink); color:var(--white); font-family:var(--body); }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1160px,calc(100% - 48px)); margin:0 auto; }
+    .topbar { position:relative; z-index:2; border-bottom:1px solid rgba(255,255,255,.1); background:#10110f; }
+    .nav { height:82px; display:flex; align-items:center; justify-content:space-between; gap:28px; }
+    .brand { display:inline-flex; align-items:center; gap:12px; font-weight:800; letter-spacing:-.04em; line-height:1; }
+    .brand-mark { width:38px; height:38px; display:grid; place-items:center; background:var(--lime); color:var(--ink); font:900 22px var(--display); transform:skew(-8deg); }
+    .brand-copy { font-size:15px; }
+    .brand-copy span { display:block; margin-top:5px; color:var(--muted); font-size:9px; letter-spacing:.19em; text-transform:uppercase; }
+    .nav-links { display:flex; align-items:center; gap:30px; color:#d5d7d1; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .nav-links a:hover,.nav-links a[aria-current="page"] { color:var(--lime); }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:43px; padding:0 17px; background:var(--lime); color:#13150d; font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; transition:.2s; }
+    .button:hover { transform:translateY(-2px); background:#d4ff55; }
+    .hero { position:relative; overflow:hidden; padding:82px 0 48px; background:radial-gradient(ellipse at 80% 25%,rgba(113,130,74,.16),transparent 38%),linear-gradient(108deg,#10110f,#191b17); }
+    .hero::after { content:'KZ'; position:absolute; right:4%; top:-52px; color:rgba(255,255,255,.025); font:900 clamp(260px,38vw,500px)/.8 var(--display); pointer-events:none; }
+    .hero-content { position:relative; z-index:1; }
+    .eyebrow { display:flex; align-items:center; gap:11px; margin-bottom:18px; color:var(--lime); font-size:10px; font-weight:800; letter-spacing:.23em; text-transform:uppercase; }
+    .eyebrow::before { width:30px; height:2px; content:''; background:var(--lime); }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { margin-bottom:17px; font:900 clamp(64px,9vw,108px)/.84 var(--display); letter-spacing:-.025em; text-transform:uppercase; }
+    h1 span { color:var(--lime); }
+    .hero p { max-width:540px; margin-bottom:0; color:#b6b9b1; font-size:14px; line-height:1.8; }
+    .gallery-section { padding:38px 0 96px; }
+    .toolbar { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-bottom:28px; }
+    .tabs { display:flex; gap:8px; flex-wrap:wrap; }
+    .tab { min-height:38px; padding:0 17px; border:1px solid var(--line); background:transparent; color:#b7bab2; cursor:pointer; font:700 10px var(--body); letter-spacing:.1em; text-transform:uppercase; transition:.2s; }
+    .tab:hover { border-color:rgba(198,250,54,.55); color:var(--white); }
+    .tab[aria-pressed="true"] { border-color:var(--lime); background:var(--lime); color:#15170f; }
+    .photo-count { flex:none; color:#8d9188; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .masonry { columns:4 220px; column-gap:16px; }
+    .photo-card { display:inline-block; width:100%; margin:0 0 16px; overflow:hidden; border:1px solid var(--line); background:var(--panel); break-inside:avoid; transition:opacity .2s,transform .2s; }
+    .photo-card[hidden] { display:none; }
+    .photo-card:hover { border-color:rgba(198,250,54,.5); transform:translateY(-3px); }
+    .photo-card img { display:block; width:100%; height:auto; background:#272a24; }
+    .photo-info { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 15px 15px; }
+    .photo-info h2 { margin:0; font:700 20px/.95 var(--display); text-transform:uppercase; }
+    .photo-info span { color:var(--lime); font-size:9px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    .empty { display:none; padding:48px 16px; border:1px dashed var(--line); color:var(--muted); text-align:center; font-size:13px; }
+    .join { padding:58px 0; background:var(--lime); color:#15170f; }
+    .join-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .join p { margin:0 0 8px; color:#354315; font-size:10px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; }
+    .join h2 { margin:0; font:800 clamp(36px,5vw,58px)/.95 var(--display); text-transform:uppercase; }
+    .join .button { flex:none; border:1px solid #15170f; background:#15170f; color:var(--lime); }
+    footer { padding:25px 0; background:#10110f; }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:18px; color:#858980; font-size:10px; }
+    .footer-inner strong { color:#daddd4; }
+    .footer-links { display:flex; gap:18px; }
+    .footer-links a:hover { color:var(--lime); }
+    @media(max-width:760px) { .nav-links { gap:14px; font-size:9px; } .nav-cta { display:none; } .masonry { columns:3 190px; } }
+    @media(max-width:560px) { .wrap { width:calc(100% - 36px); } .nav { height:72px; } .brand-mark { width:34px;height:34px; } .brand-copy { font-size:13px; } .nav-links { gap:12px; } .nav-links a:first-child,.nav-links a:nth-child(2) { display:none; } .hero { padding:64px 0 40px; } .hero p { font-size:13px; } .gallery-section { padding-top:25px; } .toolbar { align-items:flex-start; flex-direction:column; } .tabs { gap:6px; } .tab { min-height:35px; padding:0 12px; font-size:9px; } .masonry { columns:2 140px; column-gap:10px; } .photo-card { margin-bottom:10px; } .photo-info { padding:11px; } .photo-info h2 { font-size:18px; } .join-inner,.footer-inner { align-items:flex-start; flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Kuya Zarge Fitness Gym home"><span class="brand-mark">KZ</span><span class="brand-copy">Kuya Zarge<span>Fitness Gym</span></span></a>
+      <div class="nav-links"><a href="index.html#about">About</a><a href="index.html#training">Training</a><a href="gallery.html" aria-current="page">Gallery</a></div>
+      <a class="button nav-cta" href="index.html#membership">Join the Gym <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-content wrap">
+        <div class="eyebrow">Take a look around</div>
+        <h1>Built for the <span>work.</span></h1>
+        <p>Browse the spaces and equipment that help you move, train, and get stronger. Choose a category to find your next station.</p>
+      </div>
+    </section>
+    <section class="gallery-section wrap" aria-label="Gym photo gallery">
+      <div class="toolbar">
+        <div class="tabs" role="group" aria-label="Filter gallery by area">
+          <button class="tab" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="tab" type="button" data-filter="lounge" aria-pressed="false">Lounge</button>
+          <button class="tab" type="button" data-filter="cardio" aria-pressed="false">Cardio</button>
+          <button class="tab" type="button" data-filter="push" aria-pressed="false">Push</button>
+          <button class="tab" type="button" data-filter="pull" aria-pressed="false">Pull</button>
+          <button class="tab" type="button" data-filter="legs" aria-pressed="false">Legs</button>
+        </div>
+        <div class="photo-count" id="photo-count" aria-live="polite">12 photos</div>
+      </div>
+      <div class="masonry" id="gallery">
+        <article class="photo-card" data-category="lounge"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Open gym floor with rows of workout equipment" loading="lazy"><div class="photo-info"><h2>Welcome lounge</h2><span>Lounge</span></div></article>
+        <article class="photo-card" data-category="cardio"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Bright training room with cardio and strength equipment" loading="lazy"><div class="photo-info"><h2>Cardio floor</h2><span>Cardio</span></div></article>
+        <article class="photo-card" data-category="push"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Dumbbells arranged in a strength training area" loading="lazy"><div class="photo-info"><h2>Dumbbell press</h2><span>Push</span></div></article>
+        <article class="photo-card" data-category="pull"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Athlete training with free weights" loading="lazy"><div class="photo-info"><h2>Free weights</h2><span>Pull</span></div></article>
+        <article class="photo-card" data-category="legs"><img src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Strength equipment ready for a lower body workout" loading="lazy"><div class="photo-info"><h2>Leg day setup</h2><span>Legs</span></div></article>
+        <article class="photo-card" data-category="cardio"><img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Person exercising in a modern gym" loading="lazy"><div class="photo-info"><h2>Find your pace</h2><span>Cardio</span></div></article>
+        <article class="photo-card" data-category="pull"><img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Gym interior with strength equipment" loading="lazy"><div class="photo-info"><h2>Pull station</h2><span>Pull</span></div></article>
+        <article class="photo-card" data-category="push"><img src="https://images.unsplash.com/photo-1584466977773-e625c37cdd50?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Weight training equipment in a gym" loading="lazy"><div class="photo-info"><h2>Press station</h2><span>Push</span></div></article>
+        <article class="photo-card" data-category="legs"><img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Athlete working through a strength exercise" loading="lazy"><div class="photo-info"><h2>Lower body work</h2><span>Legs</span></div></article>
+        <article class="photo-card" data-category="lounge"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="A welcoming gym interior with training stations" loading="lazy"><div class="photo-info"><h2>Gym floor</h2><span>Lounge</span></div></article>
+        <article class="photo-card" data-category="cardio"><img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Cardio machines lined up in a gym" loading="lazy"><div class="photo-info"><h2>Cardio machines</h2><span>Cardio</span></div></article>
+        <article class="photo-card" data-category="push"><img src="https://images.unsplash.com/photo-1586401100295-7a8096fd231a?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Close-up of strength training weights" loading="lazy"><div class="photo-info"><h2>Strength corner</h2><span>Push</span></div></article>
+      </div>
+      <div class="empty" id="empty-state">No photos in this category yet.</div>
+    </section>
+    <section class="join"><div class="join-inner wrap"><div><p>Come train with us</p><h2>Your next rep is waiting.</h2></div><a class="button" href="index.html#membership">Ask About Membership <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+  <footer><div class="footer-inner wrap"><div><strong>Kuya Zarge Fitness Gym</strong> &nbsp;·&nbsp; Stronger starts here.</div><div class="footer-links"><a href="index.html#about">About</a><a href="index.html#training">Training</a><a href="index.html">Home</a></div><div>© 2026 Kuya Zarge Fitness Gym</div></div></footer>
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const cards = document.querySelectorAll('.photo-card');
+    const count = document.getElementById('photo-count');
+    const empty = document.getElementById('empty-state');
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const filter = tab.dataset.filter;
+        let visible = 0;
+        tabs.forEach((item) => item.setAttribute('aria-pressed', String(item === tab)));
+        cards.forEach((card) => {
+          const show = filter === 'all' || card.dataset.category === filter;
+          card.hidden = !show;
+          if (show) visible += 1;
+        });
+        count.textContent = `${visible} ${visible === 1 ? 'photo' : 'photos'}`;
+        empty.style.display = visible ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>
