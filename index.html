@@ -28,13 +28,14 @@
     a { color: inherit; text-decoration: none; }
     .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
     .topbar { position: absolute; inset: 0 0 auto; z-index: 4; border-bottom: 1px solid rgba(255,255,255,.1); }
-    .nav { height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .nav { height: 82px; position: relative; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
     .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.04em; line-height: 1; }
     .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; background: var(--lime); color: var(--ink); font-family: var(--display); font-weight: 900; font-size: 22px; transform: skew(-8deg); }
     .brand-copy { font-size: 15px; }
     .brand-copy span { display: block; margin-top: 5px; color: var(--muted); font-size: 9px; letter-spacing: .19em; text-transform: uppercase; }
     .nav-links { display: flex; align-items: center; gap: 34px; color: #d5d7d1; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
     .nav-links a:hover { color: var(--lime); }
+    .nav-toggle { display: none; width: 42px; height: 42px; place-items: center; border: 1px solid var(--line); background: transparent; color: var(--white); cursor: pointer; font-size: 20px; }
     .button { display: inline-flex; justify-content: center; align-items: center; gap: 11px; min-height: 48px; padding: 0 22px; background: var(--lime); color: #13150d; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; transition: .2s ease; }
     .button:hover { transform: translateY(-2px); background: #d4ff55; }
     .button .arrow { font-size: 17px; line-height: 0; }
@@ -114,7 +115,11 @@
     .footer-links { display: flex; gap: 20px; }
     .footer-links a:hover { color: var(--lime); }
     @media (max-width: 800px) {
-      .nav-links { display: none; }
+      .nav-toggle { display: grid; }
+      .nav-cta { display: none; }
+      .nav-links { display: none; position: absolute; top: 70px; left: 0; right: 0; padding: 10px 16px; border: 1px solid var(--line); background: #171916; }
+      .nav-links.is-open { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+      .nav-links a { padding: 13px 4px; }
       .hero { min-height: auto; }
       .hero-inner { grid-template-columns: 1fr; padding-top: 150px; padding-bottom: 70px; }
       .hero-art { min-height: 380px; margin-top: -5px; }
@@ -168,13 +173,14 @@
         <span class="brand-mark">KZ</span>
         <span class="brand-copy">Kuya Zarge<span>Fitness Gym</span></span>
       </a>
-      <div class="nav-links">
+      <div class="nav-links" id="site-menu">
         <a href="#about">About</a>
         <a href="#training">Training</a>
         <a href="gallery.html">Gallery</a>
         <a href="#membership">Membership</a>
       </div>
-      <a class="button nav-cta" href="#membership">Join the Gym <span class="arrow">↗</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">☰</button>
+      <a class="button nav-cta" href="signup.html">Join the Gym <span class="arrow">↗</span></a>
     </nav>
   </header>
 
@@ -186,7 +192,7 @@
           <h1>Earn your <span>strong.</span></h1>
           <p class="hero-copy">Welcome to Kuya Zarge Fitness Gym — a place to show up, put in the work, and feel good about every step forward. Your next chapter starts with one rep.</p>
           <div class="hero-actions">
-            <a class="button" href="#membership">Start Your Journey <span class="arrow">↗</span></a>
+            <a class="button" href="signup.html">Start Your Journey <span class="arrow">↗</span></a>
             <a class="text-link" href="#about">Explore the gym <span>↓</span></a>
           </div>
         </div>
@@ -229,7 +235,7 @@
           <h2>Train your<br />own way.</h2>
           <p>There’s no one-size-fits-all path to getting stronger. Start where you are, focus on what matters to you, and take it one session at a time.</p>
           <ul class="check-list"><li>Strength and conditioning</li><li>Space for every fitness level</li><li>A welcoming community to keep you going</li></ul>
-          <a class="text-link" href="#membership">Come see what’s possible <span>→</span></a>
+          <a class="text-link" href="signup.html">Come see what’s possible <span>→</span></a>
         </div>
       </div>
     </section>
@@ -237,7 +243,7 @@
     <section class="join" id="membership">
       <div class="join-inner wrap">
         <div><div class="section-kicker">Your first step starts now</div><h2>Ready to feel stronger?</h2></div>
-        <a class="button" href="mailto:hello@kuyazargefitness.com?subject=Gym%20Membership%20Inquiry">Ask About Membership <span class="arrow">↗</span></a>
+        <a class="button" href="signup.html">Join the Gym <span class="arrow">↗</span></a>
       </div>
     </section>
   </main>
@@ -247,9 +253,10 @@
       <div><strong>Kuya Zarge Fitness Gym</strong> &nbsp;·&nbsp; Stronger starts here.</div>
       <div class="footer-links"><a href="#about">About</a><a href="#training">Training</a>
         <a href="gallery.html">Gallery</a><a href="#home">Back to top ↑</a></div>
-      <div>© <span id="year">2026</span> Kuya Zarge Fitness Gym</div>
+      <div>© <span data-current-year>2026</span> Kuya Zarge Fitness Gym</div>
     </div>
   </footer>
+  <script src="site.js" defer></script>
 </body>
 </html>
 

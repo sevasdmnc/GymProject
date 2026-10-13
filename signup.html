@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#10110f" />
+  <meta name="description" content="Sign up to start your fitness journey at Kuya Zarge Fitness Gym." />
+  <title>Join Kuya Zarge Fitness Gym</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#10110f; --panel:#171916; --line:rgba(255,255,255,.12); --muted:#a6aaa1; --white:#f5f6f1; --lime:#c6fa36; --display:'Barlow Condensed',Impact,sans-serif; --body:'DM Sans',Arial,sans-serif; }
+    * { box-sizing:border-box; }
+    body { min-height:100vh; margin:0; background:radial-gradient(ellipse at 78% 28%,rgba(113,130,74,.14),transparent 38%),var(--ink); color:var(--white); font-family:var(--body); }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1160px,calc(100% - 48px)); margin:0 auto; }
+    .topbar { border-bottom:1px solid rgba(255,255,255,.1); }
+    .nav { height:82px; position:relative; display:flex; align-items:center; justify-content:space-between; gap:28px; }
+    .brand { display:inline-flex; align-items:center; gap:12px; font-weight:800; letter-spacing:-.04em; line-height:1; }
+    .brand-mark { width:38px; height:38px; display:grid; place-items:center; background:var(--lime); color:var(--ink); font:900 22px var(--display); transform:skew(-8deg); }
+    .brand-copy { font-size:15px; }
+    .brand-copy span { display:block; margin-top:5px; color:var(--muted); font-size:9px; letter-spacing:.19em; text-transform:uppercase; }
+    .nav-links { display:flex; align-items:center; gap:30px; color:#d5d7d1; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .nav-links a:hover,.nav-links a[aria-current="page"] { color:var(--lime); }
+    .nav-toggle { display:none; width:42px; height:42px; place-items:center; border:1px solid var(--line); background:transparent; color:var(--white); cursor:pointer; font-size:20px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:43px; padding:0 17px; border:0; background:var(--lime); color:#13150d; cursor:pointer; font:800 10px var(--body); letter-spacing:.1em; text-transform:uppercase; transition:.2s; }
+    .button:hover { transform:translateY(-2px); background:#d4ff55; }
+    .page { padding:70px 0 90px; }
+    .intro { max-width:740px; margin-bottom:35px; }
+    .eyebrow { display:flex; align-items:center; gap:11px; margin-bottom:18px; color:var(--lime); font-size:10px; font-weight:800; letter-spacing:.23em; text-transform:uppercase; }
+    .eyebrow::before { width:30px; height:2px; content:''; background:var(--lime); }
+    h1,h2,p { margin-top:0; }
+    h1 { margin-bottom:14px; font:900 clamp(58px,8vw,92px)/.86 var(--display); letter-spacing:-.02em; text-transform:uppercase; }
+    h1 span { color:var(--lime); }
+    .intro p { max-width:540px; margin-bottom:0; color:var(--muted); font-size:13px; line-height:1.8; }
+    .form-layout { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(240px,.65fr); gap:20px; align-items:start; }
+    .form-card,.aside-card { border:1px solid var(--line); background:linear-gradient(145deg,#1b1e19,#141612); }
+    .form-card { padding:clamp(22px,4vw,42px); }
+    .form-card h2 { margin-bottom:7px; font:700 31px/.95 var(--display); text-transform:uppercase; }
+    .form-hint { margin-bottom:27px; color:var(--muted); font-size:11px; line-height:1.7; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px 14px; }
+    .field { display:grid; gap:8px; }
+    .field.full { grid-column:1/-1; }
+    label,.legend { color:#e5e7e1; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    label span { color:var(--lime); }
+    input,select,textarea { width:100%; min-height:47px; padding:12px 13px; border:1px solid #3a3d35; border-radius:0; outline:none; background:#11130f; color:var(--white); font:13px var(--body); }
+    input:focus,select:focus,textarea:focus { border-color:var(--lime); box-shadow:0 0 0 2px rgba(198,250,54,.12); }
+    input::placeholder,textarea::placeholder { color:#777b71; }
+    textarea { min-height:105px; resize:vertical; }
+    .consent { display:flex; align-items:flex-start; gap:10px; margin-top:20px; color:#b6b9b1; font-size:11px; line-height:1.6; }
+    .consent input { width:17px; min-height:17px; height:17px; flex:none; margin:1px 0 0; accent-color:var(--lime); }
+    .submit-row { display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-top:22px; }
+    .submit-row .button { min-height:48px; padding:0 24px; }
+    .privacy-note { max-width:300px; margin:0; color:#83877e; font-size:10px; line-height:1.6; }
+    .aside-card { padding:25px; }
+    .aside-card .section-kicker { margin-bottom:11px; color:var(--lime); font-size:9px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; }
+    .aside-card h2 { margin-bottom:12px; font:700 27px/.95 var(--display); text-transform:uppercase; }
+    .aside-card p,.aside-card li { color:var(--muted); font-size:11px; line-height:1.7; }
+    .aside-card ul { display:grid; gap:8px; margin:17px 0 0; padding:0; list-style:none; }
+    .aside-card li::before { content:'✓'; margin-right:9px; color:var(--lime); font-weight:800; }
+    .confirmation { min-height:320px; display:grid; align-content:center; padding:clamp(22px,4vw,42px); border:1px solid rgba(198,250,54,.45); background:linear-gradient(145deg,#1b1e19,#141612); outline:none; }
+    .confirmation[hidden] { display:none; }
+    .confirmation-mark { width:46px; height:46px; display:grid; place-items:center; margin-bottom:22px; background:var(--lime); color:#14160f; font-size:24px; }
+    .confirmation h2 { margin-bottom:12px; font:800 clamp(38px,5vw,56px)/.9 var(--display); text-transform:uppercase; }
+    .confirmation p { max-width:520px; color:#b6b9b1; font-size:13px; line-height:1.8; }
+    .confirmation .button { justify-self:start; margin-top:8px; }
+    footer { padding:25px 0; border-top:1px solid var(--line); color:#858980; font-size:10px; }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:18px; }
+    .footer-inner strong { color:#daddd4; }
+    .footer-links { display:flex; gap:18px; }
+    .footer-links a:hover { color:var(--lime); }
+    @media(max-width:760px) { .nav-toggle { display:grid; } .nav-links { display:none; position:absolute; top:70px; left:0; right:0; z-index:3; padding:10px 16px; border:1px solid var(--line); background:#171916; } .nav-links.is-open { display:flex; flex-direction:column; align-items:stretch; gap:0; } .nav-links a { padding:13px 4px; } .nav-cta { display:none; } .form-layout { grid-template-columns:1fr; } }
+    @media(max-width:560px) { .wrap { width:calc(100% - 36px); } .nav { height:72px; } .brand-mark { width:34px;height:34px; } .brand-copy { font-size:13px; } .page { padding:52px 0 64px; } .form-grid { grid-template-columns:1fr; } .field.full { grid-column:auto; } .footer-inner { align-items:flex-start; flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Kuya Zarge Fitness Gym home"><span class="brand-mark">KZ</span><span class="brand-copy">Kuya Zarge<span>Fitness Gym</span></span></a>
+      <div class="nav-links" id="site-menu"><a href="index.html#about">About</a><a href="index.html#training">Training</a><a href="gallery.html">Gallery</a><a href="signup.html" aria-current="page">Sign up</a></div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">☰</button>
+      <a class="button nav-cta" href="signup.html">Join the Gym <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main class="page wrap">
+    <div class="intro">
+      <div class="eyebrow">Your first step starts now</div>
+      <h1>Let’s get <span>stronger.</span></h1>
+      <p>Tell us a little about yourself and what you’re looking for. Choose a membership and a preferred start date to get your gym journey moving.</p>
+    </div>
+    <div class="form-layout">
+      <section class="form-card" aria-labelledby="form-title">
+        <h2 id="form-title">Membership sign-up</h2>
+        <p class="form-hint">Fields marked <span aria-hidden="true" style="color:var(--lime)">*</span> are required.</p>
+        <form data-signup-form>
+          <div class="form-grid">
+            <div class="field full"><label for="full-name">Full name <span>*</span></label><input id="full-name" name="full-name" type="text" autocomplete="name" placeholder="Your full name" minlength="2" maxlength="100" required /></div>
+            <div class="field"><label for="email">Email address <span>*</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required /></div>
+            <div class="field"><label for="phone">Phone number <span>*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="e.g. 0917 123 4567" minlength="7" maxlength="25" required /></div>
+            <div class="field"><label for="membership">Membership option <span>*</span></label><select id="membership" name="membership" required><option value="" selected disabled>Select an option</option><option value="basic">Basic access</option><option value="standard">Standard membership</option><option value="unlimited">Unlimited membership</option></select></div>
+            <div class="field"><label for="start-date">Preferred start date <span>*</span></label><input id="start-date" name="start-date" type="date" required /></div>
+            <div class="field full"><label for="goals">What are your fitness goals?</label><textarea id="goals" name="goals" maxlength="600" placeholder="Tell us what you’d like to work on (optional)"></textarea></div>
+          </div>
+          <label class="consent"><input name="contact-consent" type="checkbox" required /><span>I agree that Kuya Zarge Fitness Gym may contact me about this membership request. <span>*</span></span></label>
+          <div class="submit-row"><button class="button" type="submit">Submit sign-up <span aria-hidden="true">↗</span></button><p class="privacy-note">Demo sign-up form: your details are not sent or stored yet. A form service or gym backend is needed to receive applications.</p></div>
+        </form>
+        <div class="confirmation" id="signup-confirmation" tabindex="-1" role="status" aria-live="polite" hidden>
+          <div class="confirmation-mark" aria-hidden="true">✓</div>
+          <h2>Thanks, <span data-confirmation-name></span>.</h2>
+          <p>Your <strong data-confirmation-plan></strong> request is ready. This website is currently a front-end demo, so the details were not sent to the gym. Connect a form service or backend to receive and follow up on sign-ups.</p>
+          <a class="button" href="index.html">Back to home <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+      <aside class="aside-card">
+        <div class="section-kicker">A good place to start</div>
+        <h2>Show up as you are.</h2>
+        <p>Pick the membership that feels right. You can talk with the gym about the details and find a routine that works for you.</p>
+        <ul><li>Space for every fitness level</li><li>Strength and conditioning equipment</li><li>A welcoming place to build consistency</li></ul>
+      </aside>
+    </div>
+  </main>
+  <footer><div class="footer-inner wrap"><div><strong>Kuya Zarge Fitness Gym</strong> &nbsp;·&nbsp; Stronger starts here.</div><div class="footer-links"><a href="index.html">Home</a><a href="gallery.html">Gallery</a></div><div>© <span data-current-year>2026</span> Kuya Zarge Fitness Gym</div></div></footer>
+  <script src="site.js" defer></script>
+</body>
+</html>
